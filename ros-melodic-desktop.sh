@@ -28,5 +28,5 @@ grep -F "ROS_IP" ~/.bashrc ||
 echo "export ROS_IP=127.0.0.1" >> ~/.bashrc
 
 grep -F "ROS_MASTER_URI" ~/.bashrc ||
-echo "export ROS_MASTER_URI=http://$ROS_IP:11311" >> ~/.bashrc
+echo "export ROS_MASTER_URI=http://\$ROS_IP:11311" >> ~/.bashrc
 
