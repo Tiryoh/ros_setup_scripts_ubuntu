@@ -1,0 +1,29 @@
+name: Test Scripts
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "**.sh"
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "**.sh"
+  schedule:
+    - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        package: [desktop, ros-base]
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Install Test
+        env:
+          PACKAGE_VERSION: ${{ matrix.package }}
+        run: |
+          ./ros-melodic-$PACKAGE_VERSION.sh
