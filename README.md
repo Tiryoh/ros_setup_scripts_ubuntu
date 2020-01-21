@@ -1,4 +1,3 @@
 # ros_setup_scripts_ubuntu
 
-ROS setup scripts to use from u.ty0.jp
-
+unofficial ROS setup scripts to use from shorten-url, https://u.ty0.jp
