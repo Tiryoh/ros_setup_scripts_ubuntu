@@ -18,8 +18,8 @@ rosdep update
 
 sudo apt install -y python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools python3-vcstool
 
-grep -F "source /opt/ros/$ROS_DISTRO/setup.bash" ~/.bashrc ||
-echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
+grep -F "source /opt/ros/${ROS_DISTRO}/setup.bash" ~/.bashrc ||
+echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 
 grep -F `catkin locate --shell-verbs` ~/.bashrc ||
 echo "source `catkin locate --shell-verbs`" >> ~/.bashrc
@@ -30,3 +30,10 @@ echo "export ROS_IP=127.0.0.1" >> ~/.bashrc
 grep -F "ROS_MASTER_URI" ~/.bashrc ||
 echo "export ROS_MASTER_URI=http://\$ROS_IP:11311" >> ~/.bashrc
 
+echo ""
+echo "Success installing ROS ${ROS_DISTRO}"
+echo "Run 'source ~/.bashrc'"
+echo ""
+echo "If you get any errors, see the following URL."
+echo "https://github.com/Tiryoh/ros_setup_scripts_ubuntu/"
+echo ""
