@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-[[ "$(lsb_release -sc)" == "bionic" ]] || exit 1
+[[ "$(lsb_release -sc)" == "xenial" ]] || exit 1
 ROS_DISTRO=kinetic
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
