@@ -2,6 +2,16 @@
 
 unofficial ROS setup scripts to use from shorten-url, https://u.ty0.jp
 
+## Usage
+
+To install `ros-melodic-desktop-full`, run the following command.
+
+```sh
+bash -c "$(curl -SsfL u.ty0.jp/ros-melodic-desktop)"
+``` 
+
+Access https://u.ty0.jp for details.
+
 ## License
 
 Copyright (c) 2020 Daisuke Sato
@@ -13,4 +23,5 @@ Unless attributed otherwise, everything in this repository is under the MIT Lice
 
 * ryuichiueda/ros_setup_scripts_Ubuntu18.04_desktop
   * Copyright (c) 2016 Ryuichi UEDA
-  * https://github.com/ryuichiueda/ros_setup_scripts_Ubuntu18.04_desktop/blob/master/LICENSE
+  * MIT License
+    * https://github.com/ryuichiueda/ros_setup_scripts_Ubuntu18.04_desktop/blob/master/LICENSE
