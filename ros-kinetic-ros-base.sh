@@ -11,6 +11,7 @@ curl -k https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo ap
 sudo apt update || echo ""
 
 sudo apt install -y ros-${ROS_DISTRO}-ros-base
+python --version 2>&1 | grep -q "2.7" || exit 1
 
 ls /etc/ros/rosdep/sources.list.d/20-default.list > /dev/null 2>&1 && sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init 
