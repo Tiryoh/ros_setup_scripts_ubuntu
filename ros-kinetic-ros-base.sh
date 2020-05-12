@@ -12,7 +12,7 @@ sudo apt update || echo ""
 
 sudo apt install -y ros-${ROS_DISTRO}-ros-base
 
-ls /etc/ros/rosdep/sources.list.d/20-default.list && sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
+ls /etc/ros/rosdep/sources.list.d/20-default.list > /dev/null 2>&1 && sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init 
 rosdep update
 
