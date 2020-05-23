@@ -32,10 +32,11 @@ jobs:
     strategy:
       matrix:
         package: [desktop, ros-base]
+        ros-repo: [main, testing]
     env:
       ROS_DISTRO: melodic
     steps:
       - uses: actions/checkout@v2
       - name: Test
         run: |
-          ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
+          ./ros-${ROS_DISTRO}-${{ matrix.package }}-${{ matrix.ros-repo }}.sh
