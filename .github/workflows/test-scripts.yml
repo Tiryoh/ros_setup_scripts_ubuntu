@@ -11,36 +11,32 @@ on:
     paths:
       - "**.sh"
   schedule:
-    - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
+    - cron: "5 2 * * 0" # Weekly on Sundays at 02:05(GMT)
 
 jobs:
   kinetic:
+    runs-on: ubuntu-16.04
     strategy:
       matrix:
         package: [desktop, ros-base]
     env:
       ROS_DISTRO: kinetic
-    runs-on: ubuntu-16.04
     steps:
-      - uses: actions/checkout@master
-
-      - name: Install Test
-        env:
-          PACKAGE_VERSION: ${{ matrix.package }}
+      - uses: actions/checkout@v2
+      - name: Test
         run: |
-          ./ros-${ROS_DISTRO}-${PACKAGE_VERSION}.sh
+          ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
+
   melodic:
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         package: [desktop, ros-base]
+        ros-repo: [main, testing]
     env:
       ROS_DISTRO: melodic
-    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@master
-
-      - name: Install Test
-        env:
-          PACKAGE_VERSION: ${{ matrix.package }}
+      - uses: actions/checkout@v2
+      - name: Test
         run: |
-          ./ros-${ROS_DISTRO}-${PACKAGE_VERSION}.sh
+          ./ros-${ROS_DISTRO}-${{ matrix.package }}-${{ matrix.ros-repo }}.sh
