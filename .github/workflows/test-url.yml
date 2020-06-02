@@ -1,10 +1,37 @@
 name: Test URL
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/test-url.yml"
+      - "**.sh"
+  pull_request:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/test-url.yml"
+      - "**.sh"
   schedule:
     - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
 
 jobs:
-  build:
+  kinetic:
+    strategy:
+      matrix:
+        package: [desktop, ros-base]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Verify shorten-URL
+        env:
+          PACKAGE_VERSION: ${{ matrix.package }}
+        run: |
+          curl -Ls -o run.sh -w %{url_effective} http://u.ty0.jp/ros-kinetic-$PACKAGE_VERSION | tee url.txt
+          diff run.sh ros-kinetic-$PACKAGE_VERSION.sh
+          diff -w url.txt <(echo https://raw.githubusercontent.com/Tiryoh/ros_setup_scripts_ubuntu/master/ros-kinetic-$PACKAGE_VERSION.sh)
+  melodic:
     strategy:
       matrix:
         package: [desktop, ros-base]
@@ -17,5 +44,20 @@ jobs:
           PACKAGE_VERSION: ${{ matrix.package }}
         run: |
           curl -Ls -o run.sh -w %{url_effective} http://u.ty0.jp/ros-melodic-$PACKAGE_VERSION | tee url.txt
-          diff run.sh ros-melodic-$PACKAGE_VERSION.sh
-          diff -w url.txt <(echo https://raw.githubusercontent.com/Tiryoh/ros_setup_scripts_ubuntu/master/ros-melodic-$PACKAGE_VERSION.sh)
+          diff run.sh ros-melodic-$PACKAGE_VERSION-main.sh
+          diff -w url.txt <(echo https://raw.githubusercontent.com/Tiryoh/ros_setup_scripts_ubuntu/master/ros-melodic-$PACKAGE_VERSION-main.sh)
+  noetic:
+    strategy:
+      matrix:
+        package: [desktop, ros-base]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Verify shorten-URL
+        env:
+          PACKAGE_VERSION: ${{ matrix.package }}
+        run: |
+          curl -Ls -o run.sh -w %{url_effective} http://u.ty0.jp/ros-noetic-$PACKAGE_VERSION | tee url.txt
+          diff run.sh ros-noetic-$PACKAGE_VERSION-main.sh
+          diff -w url.txt <(echo https://raw.githubusercontent.com/Tiryoh/ros_setup_scripts_ubuntu/master/ros-noetic-$PACKAGE_VERSION-main.sh)
