@@ -1,7 +1,7 @@
 name: Test URL
 on:
   schedule:
-    - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
+    - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
 
 jobs:
   build:

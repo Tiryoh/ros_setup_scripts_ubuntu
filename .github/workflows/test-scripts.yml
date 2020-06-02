@@ -11,7 +11,7 @@ on:
     paths:
       - "**.sh"
   schedule:
-    - cron: "5 2 * * 0" # Weekly on Sundays at 02:05(GMT)
+    - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
 
 jobs:
   kinetic:
