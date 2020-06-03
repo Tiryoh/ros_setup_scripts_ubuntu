@@ -1,5 +1,8 @@
 # ros_setup_scripts_ubuntu
 
+[![Test Scripts](https://github.com/Tiryoh/ros_setup_scripts_ubuntu/workflows/Test%20Scripts/badge.svg?branch=master)](https://github.com/Tiryoh/ros_setup_scripts_ubuntu/actions?query=workflow%3A%22Test+Scripts%22+branch%3Amaster)
+[![Test URL](https://github.com/Tiryoh/ros_setup_scripts_ubuntu/workflows/Test%20URL/badge.svg?branch=master)](https://github.com/Tiryoh/ros_setup_scripts_ubuntu/actions?query=workflow%3A%22Test+URL%22+branch%3Amaster)
+
 unofficial ROS setup scripts to use from shorten-url, https://u.ty0.jp
 
 ## Usage
