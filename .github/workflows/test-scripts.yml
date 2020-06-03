@@ -42,9 +42,7 @@ jobs:
           ./ros-${ROS_DISTRO}-${{ matrix.package }}-${{ matrix.ros-repo }}.sh
 
   noetic:
-    runs-on: ubuntu-latest
-    container:
-      image: "ubuntu:20.04"
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         package: [desktop, ros-base]
@@ -53,10 +51,6 @@ jobs:
       ROS_DISTRO: noetic
     steps:
       - uses: actions/checkout@v2
-      - name: Prepare install
-        run: |
-          apt-get update -qq
-          DEBIAN_FRONTEND=noninteractive apt-get install -yq wget curl git build-essential sudo lsb-release locales tzdata lightdm
       - name: Test
         run: |
           ./ros-${ROS_DISTRO}-${{ matrix.package }}-${{ matrix.ros-repo }}.sh
