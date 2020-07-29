@@ -11,7 +11,8 @@ on:
       - master
     paths:
       - ".github/workflows/test-url.yml"
-      - "**.sh"
+      - "**desktop.sh"
+      - "**ros-base.sh"
   schedule:
     - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
 
