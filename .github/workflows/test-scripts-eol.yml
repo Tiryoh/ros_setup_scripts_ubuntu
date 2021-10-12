@@ -18,7 +18,7 @@ on:
 jobs:
   kinetic:
     runs-on: ubuntu-latest
-    container: osrf/ros:kinetic-desktop-full
+    container: ubuntu:16.04
     strategy:
       matrix:
         package: [desktop, ros-base]
