@@ -16,19 +16,6 @@ on:
     - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
 
 jobs:
-  kinetic:
-    runs-on: ubuntu-16.04
-    strategy:
-      matrix:
-        package: [desktop, ros-base]
-    env:
-      ROS_DISTRO: kinetic
-    steps:
-      - uses: actions/checkout@v2
-      - name: Test
-        run: |
-          ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
-
   melodic:
     runs-on: ubuntu-18.04
     strategy:
