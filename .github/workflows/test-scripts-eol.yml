@@ -18,7 +18,7 @@ on:
 jobs:
   kinetic:
     runs-on: ubuntu-latest
-    container: ubuntu:16.04
+    container: tiryoh/ubuntu:xenial-dev
     strategy:
       matrix:
         package: [desktop, ros-base]
@@ -28,5 +28,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test
         run: |
-          sudo apt-get install -y lsb-release
           ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
