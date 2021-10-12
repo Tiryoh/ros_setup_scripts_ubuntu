@@ -28,4 +28,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test
         run: |
+          sudo apt-get install -y lsb-release
           ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
