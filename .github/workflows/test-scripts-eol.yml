@@ -1,0 +1,31 @@
+name: Test Scripts (EOL)
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/test-scripts-eol.yml"
+      - "**.sh"
+  pull_request:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/test-scripts-eol.yml"
+      - "**.sh"
+  schedule:
+    - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
+
+jobs:
+  kinetic:
+    runs-on: ubuntu-latest
+    container: osrf/ros:kinetic-desktop-full
+    strategy:
+      matrix:
+        package: [desktop, ros-base]
+    env:
+      ROS_DISTRO: kinetic
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test
+        run: |
+          ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
