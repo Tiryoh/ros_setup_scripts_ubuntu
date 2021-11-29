@@ -5,6 +5,8 @@
 
 unofficial ROS setup scripts to use from shorten-url, https://u.ty0.jp
 
+ROS 2 Version: https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
+
 ## Usage
 
 To install `ros-melodic-desktop-full`, run the following command.
