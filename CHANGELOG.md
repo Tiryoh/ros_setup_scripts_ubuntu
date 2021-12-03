@@ -1,4 +1,15 @@
 
+<a name="v0.4.1"></a>
+## [v0.4.1](https://github.com/Tiryoh/ros_setup_scripts_ubuntu/compare/v0.4.0...v0.4.1) (2021-12-03)
+
+### Bug Fixes
+
+* Fix ros-noetic-*-main installer ([#19](https://github.com/Tiryoh/ros_setup_scripts_ubuntu/pull/19))
+
+### Documentation Updates
+
+* Add link to ROS 2 setup scripts
+
 <a name="v0.4.0"></a>
 ## [v0.4.0](https://github.com/Tiryoh/ros_setup_scripts_ubuntu/compare/v0.3.0...v0.4.0) (2020-07-30)
 
