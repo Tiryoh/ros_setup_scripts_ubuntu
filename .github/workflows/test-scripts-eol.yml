@@ -38,7 +38,7 @@ jobs:
       matrix:
         package: [desktop, ros-base]
     env:
-      ROS_DISTRO: kinetic
+      ROS_DISTRO: melodic
     steps:
       - uses: actions/checkout@v3
       - name: Test
