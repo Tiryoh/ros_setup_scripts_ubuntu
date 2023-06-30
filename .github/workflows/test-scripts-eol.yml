@@ -16,17 +16,32 @@ on:
     - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
 
 jobs:
-  kinetic:
+  # kinetic:
+  #   runs-on: ubuntu-latest
+  #   container: ubuntu:xenial
+  #   strategy:
+  #     matrix:
+  #       package: [desktop, ros-base]
+  #   env:
+  #     ROS_DISTRO: kinetic
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Test
+  #       run: |
+  #         apt-get update && apt-get install -y sudo lsb-release
+  #         ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
+
+  melodic:
     runs-on: ubuntu-latest
-    container: ubuntu:xenial
+    container: ubuntu:bionic
     strategy:
       matrix:
         package: [desktop, ros-base]
     env:
       ROS_DISTRO: kinetic
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Test
         run: |
           apt-get update && apt-get install -y sudo lsb-release
-          ./ros-${ROS_DISTRO}-${{ matrix.package }}.sh
+          ./ros-${ROS_DISTRO}-${{ matrix.package }}-main.sh
