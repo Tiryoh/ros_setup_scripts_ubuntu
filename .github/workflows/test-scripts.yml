@@ -5,13 +5,13 @@ on:
       - master
     paths:
       - ".github/workflows/test-scripts.yml"
-      - "**.sh"
+      - "ros-noetic-**.sh"
   pull_request:
     branches:
       - master
     paths:
       - ".github/workflows/test-scripts.yml"
-      - "**.sh"
+      - "ros-noetic-**.sh"
   schedule:
     - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
 

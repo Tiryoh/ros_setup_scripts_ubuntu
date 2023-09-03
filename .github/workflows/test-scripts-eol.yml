@@ -5,13 +5,15 @@ on:
       - master
     paths:
       - ".github/workflows/test-scripts-eol.yml"
-      - "**.sh"
+      - "ros-kinetic-**.sh"
+      - "ros-melodic-**.sh"
   pull_request:
     branches:
       - master
     paths:
       - ".github/workflows/test-scripts-eol.yml"
-      - "**.sh"
+      - "ros-kinetic-**.sh"
+      - "ros-melodic-**.sh"
   schedule:
     - cron: "5 1 * * 6" # Weekly on Saturdays at 01:05(GMT)
 
