@@ -11,19 +11,6 @@ ROS 2 Version: https://github.com/Tiryoh/ros2_setup_scripts_ubuntu
 
 Access https://u.ty0.jp for details.
 
-* Melodic
-  * To install `ros-melodic-ros-base`, run the following command after downloading this repository.
-
-    ```sh
-    ./ros-melodic-ros-base.sh
-    ``` 
-
-  * To install `ros-melodic-desktop-full`, run the following command after downloading this repository.
-
-    ```sh
-    ./ros-melodic-desktop.sh
-    ``` 
-
 * Noetic
   * To install `ros-noetic-ros-base`, run the following command after downloading this repository.
 
@@ -35,6 +22,19 @@ Access https://u.ty0.jp for details.
 
     ```sh
     ./ros-noetic-desktop.sh
+    ``` 
+
+* Melodic (EOL)
+  * To install `ros-melodic-ros-base`, run the following command after downloading this repository.
+
+    ```sh
+    ./ros-melodic-ros-base.sh
+    ``` 
+
+  * To install `ros-melodic-desktop-full`, run the following command after downloading this repository.
+
+    ```sh
+    ./ros-melodic-desktop.sh
     ``` 
 
 * Kinetic (EOL)
