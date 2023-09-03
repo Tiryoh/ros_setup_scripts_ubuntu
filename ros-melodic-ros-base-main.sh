@@ -15,7 +15,7 @@ python --version 2>&1 | grep -q "2.7" || exit 1
 
 ls /etc/ros/rosdep/sources.list.d/20-default.list > /dev/null 2>&1 && sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init 
-rosdep update
+rosdep update --include-eol-distros # https://discourse.ros.org/t/rosdep-and-eol-distros/7640
 
 sudo apt install -y python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools python3-vcstool
 
