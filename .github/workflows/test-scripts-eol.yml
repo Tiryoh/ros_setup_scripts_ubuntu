@@ -47,5 +47,5 @@ jobs:
       - name: Test
         run: |
           apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -yq wget curl git build-essential vim sudo lsb-release locales bash-completion tzdata
+          DEBIAN_FRONTEND=noninteractive apt-get install -yq wget curl git build-essential vim sudo lsb-release locales bash-completion tzdata libc6
           ./ros-${ROS_DISTRO}-${{ matrix.package }}-main.sh
