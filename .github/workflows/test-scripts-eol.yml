@@ -43,9 +43,11 @@ jobs:
     env:
       ROS_DISTRO: melodic
     steps:
-      - uses: actions/checkout@v4
-      - name: Test
+      - name: Pre-install
         run: |
           apt-get update
           DEBIAN_FRONTEND=noninteractive apt-get install -yq wget curl git build-essential vim sudo lsb-release locales bash-completion tzdata libc6
+      - uses: actions/checkout@v4
+      - name: Test
+        run: |
           ./ros-${ROS_DISTRO}-${{ matrix.package }}-main.sh
