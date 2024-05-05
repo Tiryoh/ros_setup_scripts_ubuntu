@@ -27,7 +27,7 @@ jobs:
   #   env:
   #     ROS_DISTRO: kinetic
   #   steps:
-  #     - uses: actions/checkout@v3
+  #     - uses: actions/checkout@v4
   #     - name: Test
   #       run: |
   #         apt-get update
@@ -43,7 +43,7 @@ jobs:
     env:
       ROS_DISTRO: melodic
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Test
         run: |
           apt-get update
