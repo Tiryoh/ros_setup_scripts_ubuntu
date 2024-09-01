@@ -27,7 +27,7 @@ jobs:
   #   env:
   #     ROS_DISTRO: kinetic
   #   steps:
-  #     - uses: actions/checkout@v4
+  #     - uses: actions/checkout@v3
   #     - name: Test
   #       run: |
   #         apt-get update
@@ -47,7 +47,10 @@ jobs:
         run: |
           apt-get update
           DEBIAN_FRONTEND=noninteractive apt-get install -yq wget curl git build-essential vim sudo lsb-release locales bash-completion tzdata libc6
-      - uses: actions/checkout@v4
+          # Ubuntu 16/18 can't run Node 20, so stick to older actions: https://github.com/actions/checkout/issues/1590
+          echo "GHA_USE_NODE_20=false" >> $GITHUB_ENV
+          echo "ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true" >> $GITHUB_ENV
+      - uses: actions/checkout@v3
       - name: Test
         run: |
           ./ros-${ROS_DISTRO}-${{ matrix.package }}-main.sh
